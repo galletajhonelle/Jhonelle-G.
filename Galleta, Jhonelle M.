@@ -1,0 +1,84 @@
+1. Differentiation of let, const, and var in JavaScript 
+Instructions: 
+ Discuss the differences between let, const, and var in JavaScript. 
+ Your explanation must contain the most important keywords that could explain the three (let, var, const). 
+Hint: Consider scoping (block scope), reassigning (can be and cannot), and best practices.
+JavaScript var keyword:
+The var is the oldest keyword to declare a variable in JavaScript. The var keyword was used in all JavaScript code from 1995 to 2015. Variables declared with the var keyword can NOT have block scope. Variables declared inside a { } block can be accessed from outside the block.
+https://www.w3schools.com/js/js_variables.asp#gsc.tab=0&gsc.q=%20Consider%20scoping%20(block%20scope)%2C%20reassigning%20(can%20be%20and%20cannot)%2C%20and%20best%20practices%20of%20var
+https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/
+JavaScript let keyword:
+The let keyword is an improved version of the var keyword. It is introduced in the ES6 or EcmaScript 2015. These variables has the block scope. It can’t be accessible outside the particular code block ({block}). Redeclaring a variable using the let keyword can solve this problem. Redeclaring a variable inside a block will not redeclare the variable outside the block:
+https://www.w3schools.com/js/js_let.asp
+https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/
+JavaScript const:
+The const keyword has all the properties that are the same as the let keyword, except the user cannot update it and have to assign it with a value at the time of declaration. These variables also have the block scope. The const keyword was introduced in ES6 (2015). Variables defined with const cannot be Redeclared. Variables defined with const cannot be Reassigned. Variables defined with const have Block Scope. A variable defined with the const keyword cannot be reassigned.
+https://www.w3schools.com/js/js_const.asp
+https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/
+
+2. Concept of Falsy Values in JavaScript 
+Instructions: 
+ Discuss the concept of falsy values in JavaScript. 
+ Your explanation should be no less than five (5) sentences. 
+ Provide three (3) examples of falsy values, explaining why they are considered falsy in JavaScript. 
+Hint: Discuss how falsy values behave in conditional statements.
+
+In JavaScript, falsy values are those that are evaluated as false when used in a Boolean. Unlike truthy values, falsy values represent "nothingness," "emptiness," or "failure." Falsy values are values that evaluate to false when used in a Boolean. JavaScript has a fixed list of falsy values false, 0 (and -0), 0n (BigInt zero), "" (empty string), null, undefined, NaN "Not a Number", and document.all (used for backward compatibility). "Falsy," meaning they evaluate to false when converted to a Boolean. 
+
+EXAMPLES:         
+
+1. document.all
+
+This is a quirky value used for backward compatibility in web browsers. Although technically an object, it is treated as falsy.
+
+if (document.all) console.log("This will not run.");
+Now let’s see how JavaScript handles these falsy values in action
+
+const fValues = [false, 0, -0, 0n, "", null, undefined, NaN];
+
+fValues.forEach(value => {
+    if (value) {
+        console.log(`${value} is truthy.`);
+    } else {
+        console.log(`${value} is falsy.`);
+    }
+});
+
+Output
+false is falsy.
+0 is falsy.
+0 is falsy.
+0 is falsy.
+ is falsy.
+null is falsy.
+undefined is falsy.
+NaN is falsy.
+
+2. null vs. undefined
+Although both are falsy, they are used differently. null often represents a absence of a value, while undefined usually indicates it is not yet initialize.
+
+Explicit Boolean Conversion
+If you want to explicitly determine whether a value is falsy, you can use the Boolean function or the double negation operator !!.
+
+console.log(Boolean(0));     
+console.log(Boolean(""));      
+console.log(Boolean([]));    
+console.log(!!null);           
+console.log(!!"hello");        
+
+Output
+false
+false
+true
+false
+true
+3. Conditional Statements:
+Falsy values are often used in if conditions to check for the existence or validity of a value.
+
+let config = null;
+if (!config) {
+    console.log("Configuration is missing."); 
+}
+Output
+Configuration is missing.
+https://www.geeksforgeeks.org/falsy-in-javascript/
